@@ -28,8 +28,9 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
-    uses: JooHyukKim/cla-nudge-shared/.github/workflows/cla-nudge.yml@main
+    uses: FasterXML/jackson/.github/workflows/cla-nudge.yml@main
     with:
       dry-run: ${{ inputs.dry-run == true }}
       simulate-now: ${{ inputs.simulate-now || '' }}
+      interval-days: 3
       skip-labeled-before: '2026-11-07'
