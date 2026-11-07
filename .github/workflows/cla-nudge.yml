@@ -1,0 +1,35 @@
+# Posts a CLA request on PRs labeled `cla-needed`, then a reminder every 3 days
+# until the label is removed or swapped for `cla-received`.
+# The logic lives in FasterXML/jackson: .github/workflows/cla-nudge.yml
+name: CLA nudge
+
+on:
+  pull_request_target:
+    types: [labeled]
+  schedule:
+    # Daily; each PR's 3-day rhythm comes from its own label/comment timestamps
+    - cron: '17 3 * * *'
+  workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Only log what would be posted'
+        type: boolean
+        default: true
+      simulate-now:
+        description: 'Testing only: ISO timestamp to treat as now, e.g. 2026-12-01T00:00:00Z'
+        type: string
+        default: ''
+
+permissions: {}
+
+jobs:
+  cla-nudge:
+    if: github.event_name != 'pull_request_target' || github.event.label.name == 'cla-needed'
+    permissions:
+      issues: write
+      pull-requests: write
+    uses: JooHyukKim/cla-nudge-shared/.github/workflows/cla-nudge.yml@main
+    with:
+      dry-run: ${{ inputs.dry-run == true }}
+      simulate-now: ${{ inputs.simulate-now || '' }}
+      skip-labeled-before: '2026-11-07'
