@@ -28,7 +28,7 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
-    uses: FasterXML/jackson/.github/workflows/cla-nudge.yml@main
+    uses: JooHyukKim/cla-nudge-shared/.github/workflows/cla-nudge.yml@main
     with:
       dry-run: ${{ inputs.dry-run == true }}
       simulate-now: ${{ inputs.simulate-now || '' }}
