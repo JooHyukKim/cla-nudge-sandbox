@@ -14,6 +14,10 @@ on:
         description: 'Testing only: ISO timestamp to treat as now, e.g. 2026-12-01T00:00:00Z'
         type: string
         default: ''
+      cutoff:
+        description: 'Test cutoff date'
+        type: string
+        default: '2026-11-07'
 
 permissions: {}
 
@@ -22,10 +26,9 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
-    uses: FasterXML/jackson/.github/workflows/cla-nudge.yml@7810d6c1c2ed37ed4d1e0e337257fa3e40a51a22
+    uses: FasterXML/jackson/.github/workflows/cla-nudge.yml@ca1ef0c432f8b88313f5684a97a87371001f07fa
     with:
       dry-run: ${{ inputs.dry-run == true }}
       simulate-now: ${{ inputs.simulate-now || '' }}
-      interval-days: 0.045 # Short interval for this sandbox fixture only
-      max-reminders: 1
-      skip-labeled-before: '2026-11-07'
+      interval-days: 3
+      skip-labeled-before: ${{ inputs.cutoff }}
