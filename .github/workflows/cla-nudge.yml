@@ -22,9 +22,10 @@ jobs:
     permissions:
       issues: write
       pull-requests: write
-    uses: FasterXML/jackson/.github/workflows/cla-nudge.yml@8fd3340d393a48923d9c6b9276d2c33954b53613
+    uses: FasterXML/jackson/.github/workflows/cla-nudge.yml@7810d6c1c2ed37ed4d1e0e337257fa3e40a51a22
     with:
       dry-run: ${{ inputs.dry-run == true }}
       simulate-now: ${{ inputs.simulate-now || '' }}
-      interval-days: 3
+      interval-days: 0.045 # Short interval for this sandbox fixture only
+      max-reminders: 1
       skip-labeled-before: '2026-11-07'
