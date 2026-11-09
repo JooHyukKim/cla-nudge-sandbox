@@ -4,11 +4,6 @@
 name: CLA nudge
 
 on:
-  pull_request_target:
-    types: [labeled]
-  schedule:
-    # Daily; each PR's 3-day rhythm comes from its own label/comment timestamps
-    - cron: '17 3 * * *'
   workflow_dispatch:
     inputs:
       dry-run:
@@ -24,11 +19,10 @@ permissions: {}
 
 jobs:
   cla-nudge:
-    if: github.event_name != 'pull_request_target' || github.event.label.name == 'cla-needed'
     permissions:
       issues: write
       pull-requests: write
-    uses: JooHyukKim/cla-nudge-shared/.github/workflows/cla-nudge.yml@main
+    uses: FasterXML/jackson/.github/workflows/cla-nudge.yml@8fd3340d393a48923d9c6b9276d2c33954b53613
     with:
       dry-run: ${{ inputs.dry-run == true }}
       simulate-now: ${{ inputs.simulate-now || '' }}
