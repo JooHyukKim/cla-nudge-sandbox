@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="290">
+<rect width="100%" height="100%" fill="#0d1117"/><rect x="18" y="18" width="1444" height="254" rx="16" fill="#161b22" stroke="#30363d"/>
+<text x="44" y="65" fill="#f0f6fc" font-family="Helvetica" font-size="26" font-weight="bold">CLA nudge follow-up · sandbox evidence</text>
+<text x="44" y="95" fill="#8b949e" font-family="Helvetica" font-size="16">Extracts from GitHub Actions logs · reusable workflow commit 8fd3340d</text>
+<g fill="#c9d1d9" font-family="Menlo, monospace" font-size="16" xml:space="preserve"><text x="44" y="133">42543833733  request            #1 @JooHyukKim: no CLA request for the current label cycle</text><text x="44" y="161">42543865136  wait               #1 @JooHyukKim: label on 1.8d, last CLA comment 0.0d ago, 0 reminder(s) so far</text><text x="44" y="189">42543896299  remind (dry run)   #1 @JooHyukKim: label on 23.8d, last CLA comment 22.0d ago, 0 reminder(s) so far</text><text x="44" y="217">42543782617  ##[error]simulate-now requires dry-run: true</text><text x="44" y="245">Fixture comment count: 2 before the sequence, 3 after.</text></g>
+</svg>
